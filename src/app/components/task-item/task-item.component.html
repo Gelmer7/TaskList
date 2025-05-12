@@ -1,26 +1,29 @@
-<div class="task-item" [class.completed]="task.completed">
-  <div class="task-content">
-    <div class="task-header">
-      <h3>{{ task.title }}</h3>
-      <div class="task-date">
-        Criada em: {{ task.createdAt | date:'dd/MM/yyyy HH:mm' }}
+<mat-card class="task-item" [class.completed]="task.completed">
+  <mat-card-content>
+    <div class="task-content">
+      <div class="task-header">
+        <h3>{{ task.title }}</h3>
+        <div class="task-date">
+          Criada em: {{ task.createdAt | date:'dd/MM/yyyy HH:mm' }}
+        </div>
       </div>
+      
+      @if (task.description) {
+        <p class="task-description">{{ task.description }}</p>
+      }
     </div>
-    
-    @if (task.description) {
-      <p class="task-description">{{ task.description }}</p>
-    }
-  </div>
+  </mat-card-content>
   
-  <div class="task-actions">
-    <button class="btn-toggle" (click)="onToggleComplete()" [attr.aria-label]="task.completed ? 'Marcar como pendente' : 'Marcar como concluída'">
-      {{ task.completed ? '✓' : '○' }}
+  <mat-card-actions align="end">
+    <button mat-icon-button color="primary" (click)="onToggleComplete()" 
+      matTooltip="{{ task.completed ? 'Marcar como pendente' : 'Marcar como concluída' }}">
+      <mat-icon>{{ task.completed ? 'check_circle' : 'radio_button_unchecked' }}</mat-icon>
     </button>
-    <button class="btn-edit" (click)="onEdit()" aria-label="Editar tarefa">
-      ✎
+    <button mat-icon-button color="accent" (click)="onEdit()" matTooltip="Editar tarefa">
+      <mat-icon>edit</mat-icon>
     </button>
-    <button class="btn-delete" (click)="onDelete()" aria-label="Excluir tarefa">
-      ✕
+    <button mat-icon-button color="warn" (click)="onDelete()" matTooltip="Excluir tarefa">
+      <mat-icon>delete</mat-icon>
     </button>
-  </div>
-</div>
+  </mat-card-actions>
+</mat-card>

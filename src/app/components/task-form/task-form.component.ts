@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Task } from '../../models/task.model';
+import { MaterialModule } from '../../material.module';
 
 @Component({
   selector: 'app-task-form',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MaterialModule],
   templateUrl: './task-form.component.html',
   styleUrls: ['./task-form.component.css']
 })

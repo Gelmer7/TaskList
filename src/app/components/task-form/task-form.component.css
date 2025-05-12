@@ -24,24 +24,19 @@ label {
   color: #555;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-  font-family: inherit;
-}
 
-input:focus, textarea:focus {
-  outline: none;
-  border-color: #2196F3;
-  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2);
+
+
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
 }
 
 .form-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
+  margin-top: 8px;
 }
 
 button {

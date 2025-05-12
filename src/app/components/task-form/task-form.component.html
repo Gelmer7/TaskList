@@ -2,36 +2,37 @@
   <h2>{{ isEditing ? 'Editar Tarefa' : 'Nova Tarefa' }}</h2>
   
   <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="title">Título*</label>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Título</mat-label>
       <input 
+        matInput
         type="text" 
-        id="title" 
         name="title" 
         [(ngModel)]="formTitle" 
         placeholder="Digite o título da tarefa" 
         required
       >
-    </div>
+      <mat-hint>O título é obrigatório</mat-hint>
+    </mat-form-field>
     
-    <div class="form-group">
-      <label for="description">Descrição</label>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Descrição</mat-label>
       <textarea 
-        id="description" 
+        matInput
         name="description" 
         [(ngModel)]="formDescription" 
         placeholder="Digite uma descrição (opcional)"
         rows="3"
       ></textarea>
-    </div>
+    </mat-form-field>
     
     <div class="form-actions">
-      <button type="submit" class="btn-primary">
+      <button mat-raised-button color="primary" type="submit">
         {{ isEditing ? 'Atualizar' : 'Adicionar' }}
       </button>
       
       @if (isEditing) {
-        <button type="button" class="btn-secondary" (click)="onCancel()">
+        <button mat-button type="button" (click)="onCancel()">
           Cancelar
         </button>
       }
