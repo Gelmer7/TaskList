@@ -1,0 +1,12 @@
+<mat-toolbar color="primary" class="main-toolbar">
+  <span>Meu Aplicativo</span>
+  <span class="spacer"></span>
+  <nav>
+    <a mat-button *ngFor="let item of menuItems" 
+       [routerLink]="item.path" 
+       routerLinkActive="active-link">
+      <mat-icon>{{item.icon}}</mat-icon>
+      {{item.label}}
+    </a>
+  </nav>
+</mat-toolbar>

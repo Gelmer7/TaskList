@@ -1,0 +1,30 @@
+<div class="dog-list-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Lista de Cachorros</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <div class="dogs">
+        <h2>Meus Cachorros</h2>
+        
+        @if (dogs.length === 0) {
+          <p class="no-dogs">Nenhum cachorro encontrado.</p>
+        } @else {
+          <mat-list>
+            @for (dog of dogs; track dog.id) {
+              <mat-list-item>
+                <div class="dog-item">
+                  <mat-icon matListItemIcon>pets</mat-icon>
+                  <div matListItemTitle>{{dog.name}}</div>
+                  <div matListItemLine>Raça: {{dog.breed}} | Idade: {{dog.age}} anos</div>
+                </div>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+            }
+          </mat-list>
+        }
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
