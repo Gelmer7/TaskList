@@ -1,0 +1,31 @@
+.task-list-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: #555;
+  margin: 20px 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.tasks {
+  margin-top: 30px;
+}
+
+.no-tasks {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}

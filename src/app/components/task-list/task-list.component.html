@@ -1,0 +1,27 @@
+<div class="task-list-container">
+  <h1>Lista de Tarefas</h1>
+  
+  <app-task-form 
+    [task]="selectedTask"
+    (addTask)="onAddTask($event)"
+    (updateTask)="onUpdateTask($event)"
+    (cancelEdit)="cancelEdit()">
+  </app-task-form>
+  
+  <div class="tasks">
+    <h2>Minhas Tarefas</h2>
+    
+    @if (tasks.length === 0) {
+      <p class="no-tasks">Nenhuma tarefa encontrada. Adicione uma nova tarefa!</p>
+    } @else {
+      @for (task of tasks; track task.id) {
+        <app-task-item 
+          [task]="task"
+          (edit)="onEditTask(task)"
+          (delete)="onDeleteTask(task.id)"
+          (toggleComplete)="onToggleCompletion(task.id)">
+        </app-task-item>
+      }
+    }
+  </div>
+</div>

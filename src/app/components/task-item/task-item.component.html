@@ -1,0 +1,26 @@
+<div class="task-item" [class.completed]="task.completed">
+  <div class="task-content">
+    <div class="task-header">
+      <h3>{{ task.title }}</h3>
+      <div class="task-date">
+        Criada em: {{ task.createdAt | date:'dd/MM/yyyy HH:mm' }}
+      </div>
+    </div>
+    
+    @if (task.description) {
+      <p class="task-description">{{ task.description }}</p>
+    }
+  </div>
+  
+  <div class="task-actions">
+    <button class="btn-toggle" (click)="onToggleComplete()" [attr.aria-label]="task.completed ? 'Marcar como pendente' : 'Marcar como concluída'">
+      {{ task.completed ? '✓' : '○' }}
+    </button>
+    <button class="btn-edit" (click)="onEdit()" aria-label="Editar tarefa">
+      ✎
+    </button>
+    <button class="btn-delete" (click)="onDelete()" aria-label="Excluir tarefa">
+      ✕
+    </button>
+  </div>
+</div>
