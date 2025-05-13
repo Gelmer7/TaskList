@@ -1,25 +1,42 @@
 <div class="dog-list-container">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Lista de Cachorros</mat-card-title>
+      <mat-card-title>Lista de Razas de Perros</mat-card-title>
     </mat-card-header>
     
     <mat-card-content>
       <div class="dogs">
-        <h2>Meus Cachorros</h2>
+        <h2>Razas de Perros</h2>
         
-        @if (dogs.length === 0) {
-          <p class="no-dogs">Nenhum cachorro encontrado.</p>
+        @if (loading) {
+          <div class="loading-container">
+            <mat-spinner diameter="40"></mat-spinner>
+            <p>Cargando razas de perros...</p>
+          </div>
+        } @else if (error) {
+          <div class="error-container">
+            <mat-icon color="warn">error</mat-icon>
+            <p>Error al cargar las razas de perros. Por favor, intenta de nuevo.</p>
+            <button mat-raised-button color="primary" (click)="loadBreeds()">Reintentar</button>
+          </div>
+        } @else if (dogs.length === 0) {
+          <p class="no-dogs">No se encontraron razas de perros.</p>
         } @else {
           <mat-list>
             @for (dog of dogs; track dog.id) {
-              <mat-list-item>
-                <div class="dog-item">
-                  <mat-icon matListItemIcon>pets</mat-icon>
-                  <div matListItemTitle>{{dog.name}}</div>
-                  <div matListItemLine>Raça: {{dog.breed}} | Idade: {{dog.age}} anos</div>
-                </div>
+              <mat-list-item class="dog-list-item">
+                <mat-icon matListItemIcon>pets</mat-icon>
+                <div matListItemTitle>{{dog.name}}</div>
+                <div matListItemLine>Expectativa de vida: {{dog.lifeExpectancy}}</div>
+                <div matListItemLine>Peso: {{dog.weight}}</div>
+                <div matListItemLine>Hipoalergénico: {{dog.hypoallergenic}}</div>
               </mat-list-item>
+              <mat-expansion-panel class="dog-description">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>Descripción</mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>{{dog.description}}</p>
+              </mat-expansion-panel>
               <mat-divider></mat-divider>
             }
           </mat-list>

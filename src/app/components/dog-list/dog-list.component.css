@@ -29,3 +29,31 @@ h2 {
   align-items: center;
   padding: 10px 0;
 }
+
+.loading-container, .error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+}
+
+.loading-container p, .error-container p {
+  margin: 15px 0;
+  color: #666;
+}
+
+.error-container mat-icon {
+  font-size: 40px;
+  height: 40px;
+  width: 40px;
+}
+
+.dog-list-item {
+  margin-bottom: 8px;
+}
+
+.dog-description {
+  margin-bottom: 16px;
+}
